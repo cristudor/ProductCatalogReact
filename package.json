@@ -15,8 +15,8 @@
     "redux-logger": "^3.0.6"
   },
   "scripts": {
-    "start": "cp -r ./node_modules/bootstrap/dist/* ./build/static/libs/bootstrap && react-scripts start",
-    "build": "rm -rf build/static/libs/bootstrap && mkdir -p build/static/libs/bootstrap && cp -R node_modules/bootstrap/dist/* build/static/libs/bootstrap",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
