@@ -1,13 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'
 import logger from 'redux-logger';
+
 
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 //my REACT components
 import Home from './components/home.react';
 import StylesList from './components/stylesList.react';
+import Style from './components/style.react';
 
 //the REDUX root reducer
 import rootReducer from "./reducers/rootReducer";
@@ -15,10 +18,9 @@ import rootReducer from "./reducers/rootReducer";
 import './css/app.css';
 
 
-
 //call redux createStore using MY reducer, to initialize the state management system
 //and change notifications
-const store = createStore(rootReducer, applyMiddleware(logger));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 
 class App extends React.Component {
@@ -33,6 +35,7 @@ class App extends React.Component {
                         { this.links() }
                         <Route exact path="/" component={Home} />
                         <Route exact path="/stylesList" component={StylesList} />
+                        <Route path="/styleList/style/:styleId" component={Style} />
                     </div>
                 </BrowserRouter>
             </Provider>

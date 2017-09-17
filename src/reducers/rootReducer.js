@@ -2,18 +2,12 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-const initialState = {
-    styles: []
-};
+import stylesData from './stylesData.reducer';
 
-const stylesDataReducer = (state = initialState, action) => {
-    console.log('Reducer called');
-    return initialState;
-};
 
 
 const rootReducer = combineReducers({
-    stylesData: stylesDataReducer,
+    stylesData: stylesData,
     routing: routerReducer
 });
 
