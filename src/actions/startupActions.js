@@ -1,5 +1,5 @@
 
-import fetch from 'whatwg-fetch';
+//import { fetch } from 'whatwg-fetch';
 import { InitialStateEvents } from '../constants/reduxEventConstants';
 
 
@@ -15,7 +15,7 @@ export const loadStylesList = () => dispatch => {
             description: 'sexy as hell'
         }, {
             id: 2,
-            name: 'Fat jeans',
+            name: 'Ripped jeans',
             description: 'even more sexy'
         } ]
         });
@@ -30,23 +30,33 @@ export const loadStylesList = () => dispatch => {
 
 
 
-export const loadStyleDetails = (styleId) => dispatch => {
-    //call an API to get the styles details
-    //emit an redux event with the results
+export const loadStyleDetails = (styleId) => {
+    return dispatch => {
+        //call an API to get the styles details
+        //emit an redux event with the results
 
-    dispatch({
-        type: InitialStateEvents.STYLE_DATA_RECEVIED,
-        style: {
-            id: 1,
-            name: 'Skinny jeans',
-            description: 'sexy as hell'
-        }
-    });
+        // dispatch({
+        //     type: InitialStateEvents.STYLE_DATA_RECEVIED,
+        //     style: {
+        //         id: 1,
+        //         name: 'Skinny jeans',
+        //         description: 'sexy as hell'
+        //     }
+        // });
 
-    // fetch('http://localhost/api/styles/styleId={}')
-    //     .then((data) => dispatch({
-    //     type: InitialStateEvents.STYLES_LIST_DATA_RECEVIED,
-    //     styles: data
-    // }));
+        fetch(`http://localhost:8080/RuaanV/skus/1.0.0/sku/${styleId}`)
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (data) {
+                dispatch({
+                    type: InitialStateEvents.STYLE_DATA_RECEVIED,
+                    style: data
+                })
+            })
+            .catch(e => {
+                console.dir(e)
+            })
 
+    };
 };

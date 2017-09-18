@@ -10,7 +10,7 @@ class Style extends React.Component {
     }
 
     componentDidMount() {
-        this.props.populateStyleDetails(this.props.styleId);
+        this.props.populateStyleDetails(this.props.match.params.styleId);
     }
 
     render() {

@@ -16,7 +16,7 @@ const stylesData = (state = initialState, action) => {
         case InitialStateEvents.STYLE_DATA_RECEVIED:
             return {
                 ...state,
-                currentEditingStyle: action.style
+                currentEditingStyle: {id:action.style.Id, name:action.style.Name, description:action.style.Description}
             };
     }
 
