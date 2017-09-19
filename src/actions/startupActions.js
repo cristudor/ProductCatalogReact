@@ -20,12 +20,6 @@ export const loadStylesList = () => dispatch => {
         } ]
         });
 
-    // fetch('http://localhost/api/styles/')
-    //     .then((data) => dispatch({
-    //     type: InitialStateEvents.STYLES_LIST_DATA_RECEVIED,
-    //     styles: data
-    // }));
-
 };
 
 
@@ -35,28 +29,28 @@ export const loadStyleDetails = (styleId) => {
         //call an API to get the styles details
         //emit an redux event with the results
 
-        // dispatch({
-        //     type: InitialStateEvents.STYLE_DATA_RECEVIED,
-        //     style: {
-        //         id: 1,
-        //         name: 'Skinny jeans',
-        //         description: 'sexy as hell'
-        //     }
-        // });
+        dispatch({
+            type: InitialStateEvents.STYLE_DATA_RECEVIED,
+            style: {
+                Id: styleId,
+                Name: `${styleId}: Skinny jeans`,
+                Description: 'sexy as hell'
+            }
+        });
 
-        fetch(`http://localhost:8080/RuaanV/skus/1.0.0/sku/${styleId}`)
-            .then(function (response) {
-                return response.json()
-            })
-            .then(function (data) {
-                dispatch({
-                    type: InitialStateEvents.STYLE_DATA_RECEVIED,
-                    style: data
-                })
-            })
-            .catch(e => {
-                console.dir(e)
-            })
+        // fetch(`http://localhost:8080/RuaanV/skus/1.0.0/sku/${styleId}`)
+        //     .then(function (response) {
+        //         return response.json()
+        //     })
+        //     .then(function (data) {
+        //         dispatch({
+        //             type: InitialStateEvents.STYLE_DATA_RECEVIED,
+        //             style: data
+        //         })
+        //     })
+        //     .catch(e => {
+        //         console.dir(e)
+        //     })
 
     };
 };
