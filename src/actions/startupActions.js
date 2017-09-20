@@ -8,8 +8,8 @@ export const loadStylesList = () => dispatch => {
     //emit an redux event with the results
 
     dispatch({
-            type: InitialStateEvents.STYLES_LIST_DATA_RECEVIED,
-            styles: [ {
+        type: InitialStateEvents.STYLES_LIST_DATA_RECEVIED,
+        styles: [ {
             id: 1,
             name: 'Skinny jeans',
             description: 'sexy as hell'
@@ -18,7 +18,7 @@ export const loadStylesList = () => dispatch => {
             name: 'Ripped jeans',
             description: 'even more sexy'
         } ]
-        });
+    });
 
 };
 

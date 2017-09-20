@@ -20,7 +20,7 @@ const stylesData = (state = initialState, action) => {
             };
     }
 
-    return initialState;
+    return state;
 };
 
 export default stylesData;

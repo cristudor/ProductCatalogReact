@@ -2,11 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { loadStyleDetails } from '../actions/startupActions';
+import { saveStyle } from '../actions/styleActions';
 
 //this is my react component
 class Style extends React.Component {
     constructor(props) {
        super(props);
+
+       this.state = {
+           id: 123,
+           name: 'abc',
+           description: 'abcd'
+       };
+
+        this.save = this.save.bind(this);
     }
 
     componentDidMount() {
@@ -24,8 +33,20 @@ class Style extends React.Component {
                         </div>
                         <p className="mb-1">{this.props.style.description}</p>
                     </a>
+                    <button className="btn btn-info" onClick={this.save}>Save</button>
                 </div>
             </div>);
+    }
+
+    save () {
+        //get data from form, convert into service format
+        const style = {
+            id: state.id,//Form.values["id"]
+            name: state.name,
+            description: state.description,
+        };
+
+        saveStyle(style);
     }
 }
 
@@ -41,7 +62,8 @@ const mapStateToProps = (state) => {
 // User defined function which maps the Redux event dispatcher to the data properties of the react component
 const mapDispatchToProps = (dispatch) => {
     return {
-        populateStyleDetails: (styleId) => dispatch(loadStyleDetails(styleId))
+        populateStyleDetails: (styleId) => dispatch(loadStyleDetails(styleId)),
+        saveStyle: style => dispatch(saveStyle(style))
     };
 };
 
