@@ -7,18 +7,21 @@ class Style extends React.Component{
 
     constructor(props){
         super(props);
-        this.attributesList = ['option1', 'option2'];
-        this.categoriesList = ['option1', 'option2'];
-        this.state = {
-            urn: "urn:product:Style:123",
-            name: "Skinny Jeans",
-            comment: "cool new style",
-            datecreated: "2017-01-31",
-            attributes: ["option1"],
-            categories: ["option1"],
-            designs: []
-        };
+
+        // this.state = {
+        //     urn: "urn:product:Style:123",
+        //     name: "Skinny Jeans",
+        //     comment: "cool new style",
+        //     datecreated: "2017-01-31",
+        //     attributes: ["option1"],
+        //     categories: ["option1"],
+        //     designs: []
+        // };
     }
+
+  onChange(p) {
+      console.log(p);
+  }
 
   render() {
       return (
@@ -26,10 +29,10 @@ class Style extends React.Component{
             <Panel header="Style ID">
               <Form schema={schema}
                     uiSchema={uiSchema}
-                    onChange={log("changed")}
+                    onChange={this.onChange}
                     onSubmit={log("submitted")}
                     onError={log("errors")}
-                    formData={this.state}
+                    formData={this.props.styleData}
                   >
                 <div>
                   <ButtonToolbar>

@@ -24,15 +24,15 @@ class StylePage extends React.Component {
                 <Grid fluid={true} style={paddingWrap}>
                     <Row className="show-grid">
                         <Col xs={12} md={5}>
-                            <Style id="styles" className="col-md-5"/>
+                            <Style id="styles" className="col-md-5" styleData={this.props.style}/>
                         </Col>
                         <Col xs={12} md={5}>
-                            <Option id="options" className="col-md-5"/>
+                            <Option id="options" className="col-md-5" optionData={this.props.option}/>
                         </Col>
                     </Row>
                     <Row className="show-grid">
                         <Col xs={12} md={8}>
-                            <Sku id="skus" className="col-md-8"/>
+                            <Sku id="skus" className="col-md-8" skuData={this.props.sku}/>
                         </Col>
                     </Row>
                 </Grid>
@@ -45,7 +45,9 @@ class StylePage extends React.Component {
 // User defined function which maps the Redux state to the data properties of the react component
 const mapStateToProps = (state) => {
     return {
-        style: state.stylesData.currentEditingStyle
+        style: state.stylesData.currentEditingStyle,
+        option: state.stylesData.currentEditingOption,
+        sku: state.stylesData.currentEditingSku
     };
 };
 

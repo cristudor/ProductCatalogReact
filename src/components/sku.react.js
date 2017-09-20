@@ -5,20 +5,25 @@ import {ButtonToolbar, Button, Panel, Accordion} from 'react-bootstrap'
 class SkuComp extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      skuIdOdbms: "1234567",
-      skuName: "Blue Skinny Jeans Size 32",
-      skuUrn: "urn:product:sku:123-xyz-456",
-      upcId: "1234567890123",
-      upcType: "EAN"
-    };
+    // this.state = {
+    //   skuIdOdbms: "1234567",
+    //   skuName: "Blue Skinny Jeans Size 32",
+    //   skuUrn: "urn:product:sku:123-xyz-456",
+    //   upcId: "1234567890123",
+    //   upcType: "EAN"
+    // };
   }
 
   render() {
     return (
       <Accordion>
       <Panel header="Skus">
-        <Form formData={this.state} schema={schema} uiSchema={uiSchema} onChange={log("changed")} onSubmit={log("submitted")} onError={log("errors")}>
+        <Form formData={this.props.skuData}
+              schema={schema}
+              uiSchema={uiSchema}
+              onChange={log("changed")}
+              onSubmit={log("submitted")}
+              onError={log("errors")}>
           <div>
             <ButtonToolbar>
               <Button bsStyle="primary" type="submit">Create SKUs</Button>

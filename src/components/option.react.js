@@ -5,19 +5,19 @@ import {ButtonToolbar, Button, Panel, Accordion} from 'react-bootstrap'
 class Option extends React.Component{
   constructor(props){
       super(props);
-      this.state = {
-          optionID: "Mensware-123456",
-          odbmsID: "123456",
-          OptionDescription: "Blue Skinny Jeans",
-          OptionRange: 10,
-      };
+      // this.state = {
+      //     optionID: "Mensware-123456",
+      //     odbmsID: "123456",
+      //     OptionDescription: "Blue Skinny Jeans",
+      //     OptionRange: 10,
+      // };
   }
 
   render() {
       return (
           <Accordion>
             <Panel header="Options linked to Style">
-              <Form formData={this.state}
+              <Form formData={this.props.optionData}
                     schema={schema}
                     uiSchema={uiSchema}
                     onChange={log("changed")}
