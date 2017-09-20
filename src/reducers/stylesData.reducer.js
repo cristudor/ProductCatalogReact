@@ -23,25 +23,25 @@ const stylesData = (state = initialState, action) => {
                     urn: "urn:product:Style:" + action.style.Id,
                     name: action.style.Name,
                     comment: action.style.Description,
-                    datecreated: "2017-01-31",
-                    attributes: ["option1"],
-                    categories: ["option1"],
-                    designs: []
+                    datecreated: action.style.datecreated,
+                    attributes: action.style.attributes,
+                    categories: action.style.categories,
+                    designs: action.style.designs
                 },
 
                 currentEditingOption: {
-                    optionID: "Mensware-123456",
-                    odbmsID: "123456",
-                    OptionDescription: "Blue Skinny Jeans",
-                    OptionRange: 10
+                    optionID: action.style.optionID,
+                    odbmsID: action.style.odbmsID,
+                    OptionDescription: action.style.OptionDescription,
+                    OptionRange: action.style.OptionRange
                 },
 
                 currentEditingSku: {
-                    skuIdOdbms: "1234567",
-                    skuName: "Blue Skinny Jeans Size 32",
-                    skuUrn: "urn:product:sku:123-xyz-456",
-                    upcId: "1234567890123",
-                    upcType: "EAN"
+                    skuIdOdbms: action.style.skuIdOdbms,
+                    skuName: action.style.skuName,
+                    skuUrn: action.style.skuUrn,
+                    upcId: action.style.upcId,
+                    upcType: action.style.upcType
                 }
 
             };

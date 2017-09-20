@@ -34,7 +34,22 @@ export const loadStyleDetails = (styleId) => {
             style: {
                 Id: styleId,
                 Name: `${styleId}: Skinny jeans`,
-                Description: 'sexy as hell'
+                Description: 'sexy as hell',
+                datecreated: "2017-01-31",
+                attributes: ["option1"],
+                categories: ["option1"],
+                designs: [],
+                //options details
+                optionID: "Mensware-123456",
+                odbmsID: "123456",
+                OptionDescription: "Blue Skinny Jeans",
+                OptionRange: 10,
+                //sku details
+                skuIdOdbms: "1234567",
+                skuName: "Blue Skinny Jeans Size 32",
+                skuUrn: "urn:product:sku:123-xyz-456",
+                upcId: "1234567890123",
+                upcType: "EAN"
             }
         });
 
